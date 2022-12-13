@@ -1,5 +1,5 @@
 <?php
-include_once( $_SERVER['DOCUMENT_ROOT'] . '/employeeportal/partials/header.php' );
+include '../partials/header.php';
 ?>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -309,7 +309,7 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/employeeportal/partials/header.php' 
 <!-- ./wrapper -->
 
 <?php
-@include_once( $_SERVER['DOCUMENT_ROOT'] . '/employeeportal/partials/footer.php' );
+include '../partials/footer.php';
 ?>
 </body>
 </html>
