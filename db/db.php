@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_regenerate_id(true);
    define('DB_SERVER', 'localhost');
    define('DB_USERNAME', 'root');
    define('DB_PASSWORD', '');

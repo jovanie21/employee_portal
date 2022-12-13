@@ -1,30 +1,66 @@
 <?php
 include '../partials/header.php';
 include '../db/db.php';
-session_start();
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    // username and password sent from form 
+// if(isset($_SESSION['login_id'])){
+//     header('Location: home.php');
+//     exit;
+// }
+require '../styles/plugins/google-api/vendor/autoload.php';
+// Creating new google client instance
+$client = new Google_Client();
+// Enter your Client ID
+$client->setClientId('634038212813-7ujphnolgundodkp6pvkrrsrl29v6rgt.apps.googleusercontent.com');
+// Enter your Client Secrect
+$client->setClientSecret('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');
+// Enter the Redirect URL
+$client->setRedirectUri('http://localhost/employeeportal/public/login.php');
+// Adding those scopes which we want to get (email & profile Information)
+$client->addScope("email");
+$client->addScope("profile");
+if(isset($_GET['code'])){
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    if(!isset($token["error"])){
+        $client->setAccessToken($token['access_token']);
+        // getting profile information
+        $google_oauth = new Google_Service_Oauth2($client);
+        $google_account_info = $google_oauth->userinfo->get();
     
-    $myusername = mysqli_real_escape_string($db,$_POST['username']);
-    $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-    
-    $sql = "SELECT user_id FROM tbl_user WHERE username = '$myusername' and password = '$mypassword'";
-    $result = mysqli_query($db,$sql);
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    
-    $count = mysqli_num_rows($result);
-    
-    // If result matched $myusername and $mypassword, table row must be 1 row 
-    if($count == 1) {
-    //session_register('myusername');
-       $_SESSION['login_user'] = $myusername;
-       header('location:../admin/index.php');
-    }else {
-       $error = "Your Login Name or Password is invalid";
-       echo $error;
+        // Storing data into database
+        $google_id = mysqli_real_escape_string($db, $google_account_info->id);
+        $full_name = mysqli_real_escape_string($db, trim($google_account_info->name));
+        $email = mysqli_real_escape_string($db, $google_account_info->email);
+        $profile_pic = mysqli_real_escape_string($db, $google_account_info->picture);
+        // checking user already exists or not
+        $get_user = mysqli_query($db, "SELECT google_id FROM tbl_user WHERE google_id='$google_id'");
+        if(mysqli_num_rows($get_user) > 0){
+            // $_SESSION['login_id'] = $id; 
+            header('Location: ../admin/index.php');
+            // exit;
+        }
+        else{
+            // if user not exists we will insert the user
+            $insert = mysqli_query($db, "INSERT INTO tbl_user(google_id,fname,email,profile_image) VALUES('$google_id','$full_name','$email','$profile_pic')");
+            if($insert){
+                // $_SESSION['login_id'] = $id;
+                echo $google_id; 
+                // header('Location: home.php');
+                // exit;
+            }
+            else{
+                echo "Sign up failed!(Something went wrong).";
+            }
+        }
     }
- }
+    else{
+        // header('Location: ');
+        exit;
+    }
+} 
+else{
+    // Google Login Url = $client->createAuthUrl(); 
+}
 ?>
+
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
@@ -73,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
         </a>
-        <a href="#" class="btn btn-block btn-danger">
+        <a href="<?php echo $client->createAuthUrl(); ?>" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
         </a>
       </div>
@@ -90,6 +126,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
   <!-- /.card -->
 </div>
+
 <?php
 include '../partials/footer.php';
 ?>
