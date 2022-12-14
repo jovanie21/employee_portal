@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 session_regenerate_id(true);
    define('DB_SERVER', 'localhost');
@@ -9,4 +10,5 @@ session_regenerate_id(true);
    if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
   }
+
 ?>
