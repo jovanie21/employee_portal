@@ -1,0 +1,137 @@
+.body {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+.l-header {
+    height: 55px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+    top: 0px;
+    left: 0px;
+    right: 0px;
+
+    background-color: transparent;
+}
+
+.right-header {
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 100px;
+    margin-top: 50px;
+}
+
+
+.smart-logo {
+    height: 110px;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+.free-tools-icon {
+    height: 25px;
+    cursor: pointer;
+}
+
+.oracle-icon {
+    height: 25px;
+}
+
+
+.free-tools-button {
+    border: 0px;
+    background-color: transparent;
+    font-family: Poppins, Arial, Helvetica, sans-serif  ;
+}
+
+.oracle-button {
+    border: 0px;
+    background-color: transparent;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+.welcome {
+    margin-top:  10px;
+    margin-left: 70px;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+.image-banner {
+    width: 30%;
+    margin-left: 60%;
+}
+
+.get-started {
+    border: 0px;
+    background-color: #1D818D;
+    color: white;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    border-radius: 20px;
+    font-weight: 700;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.boy {
+    width: 65%;
+    margin-bottom: -4px;
+}
+
+.signin-icon {
+    height: 13px;
+    align-items: flex-end;
+}
+
+.l-row {
+    display: flex;
+    padding-left: 70px;
+    padding-top: 200px ;
+  }
+.column {
+    flex: 50%;
+    height: 60%; 
+  }
+
+.footer1 {
+    background-color: #3FE0D0;
+    float: left;
+    width: 25%;
+    height: 350px; 
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+      
+  }
+  
+  .footer:after {
+    content: "";
+    display: table;
+    clear: both;
+    border-bottom: solid 1px; 
+    border-bottom: white;  
+  }
+
+  .Copyright {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-left: 800px;
+    background-color: #3FE0D0;
+    border-top: solid;
+    border-color: white;
+  }
+
+  @media (max-width: 400px) {
+    .welcome-text {
+        font-size: 13px;
+    }
+    .boy {
+        width: 60%!important;
+    }
+  }

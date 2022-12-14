@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <head>
      <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Poppins Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../styles/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -20,5 +22,7 @@
   <link rel="stylesheet" href="../styles/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../styles/plugins/summernote/summernote-bs4.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../styles/dist/css/custom.css">
     <title>Home Admin</title>
 </head>

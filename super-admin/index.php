@@ -1,5 +1,9 @@
 <?php
 include '../partials/header.php';
+require '../db/db.php';
+if(!isset($_SESSION['user_id'])) {
+  header('Location: ../public/index.php');
+}
 ?>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -78,7 +82,8 @@ include '../partials/header.php';
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block">Super Admin</a>
+          <a href="../public/logout.php" class="d-block">Logout</a>
         </div>
       </div>
 

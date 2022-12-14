@@ -23,32 +23,32 @@ require '../db/db.php';
       
           // Storing data into database
           $google_id = mysqli_real_escape_string($db, $google_account_info->id);
-          $full_name = mysqli_real_escape_string($db, trim($google_account_info->name));
+          $first_name = mysqli_real_escape_string($db, trim($google_account_info->givenName));
+          $last_name = mysqli_real_escape_string($db, $google_account_info->familyName);
           $email = mysqli_real_escape_string($db, $google_account_info->email);
           $profile_pic = mysqli_real_escape_string($db, $google_account_info->picture);
           // checking user already exists or not
           $get_user = mysqli_query($db, "SELECT * FROM tbl_user WHERE google_id='$google_id'");
           if(mysqli_num_rows($get_user) > 0){
               while($row = $get_user->fetch_assoc()) {
-                $_SESSION['user_id'] = $row['user_id'];;
+                $_SESSION['user_id'] = $row['user_id'];
                 $role_id = $row['role_id'];
-                if ($role_id == '0'){
+                if ($role_id == '1'){
+                  header('Location: ../super-admin/index.php');
+                }else if ($role_id == '2'){
                   header('Location: ../admin/index.php');
-                }else if ($role_id == '1'){
-                  echo'role 1';
                 }else{
-                  echo'role 2';
+                  header('Location: ../employee/index.php');
                 }
               } 
-              // header('Location: ../admin/index.php');
+            
               exit;
           }
           else{
               // if user not exists we will insert the user
-              $insert = mysqli_query($db, "INSERT INTO tbl_user(google_id,fname,email,profile_image) VALUES('$google_id','$full_name','$email','$profile_pic')");
+              $insert = mysqli_query($db, "INSERT INTO tbl_user(google_id,fname,lname,email,profile_image) VALUES('$google_id','$first_name','$last_name','$email','$profile_pic')");
               if($insert){
-                  // $_SESSION['login_id'] = $id;
-                  echo "Insert";
+                 header('Location: register.php');
                   exit;
               }
               else{
