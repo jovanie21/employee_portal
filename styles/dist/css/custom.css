@@ -1,137 +1,146 @@
 .body {
     font-family: Poppins, Arial, Helvetica, sans-serif;
 }
-
-.l-header {
-    height: 55px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-
-    top: 0px;
-    left: 0px;
-    right: 0px;
-
-    background-color: transparent;
+.front-pg {
+    background-image: url(../img/Group\ 2.png);
+    background-size: 100%;
 }
 
-.right-header {
-    width: 220px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-    margin-right: 100px;
-    margin-top: 50px;
+.front-col-1 {
+    margin-left: 100px;
+}
+
+.front-col-3 {
+    margin-left: 150px;
+    margin-top: 40px;
+}
+
+.front-col-2 {
+    margin-top: 200px;
+}
+
+.front-col-2-pic {
+    height: 45rem;
 }
 
 
-.smart-logo {
-    height: 110px;
-    margin-left: 70px;
-    margin-top: 50px;
-}
-
-.free-tools-icon {
-    height: 25px;
-    cursor: pointer;
-}
-
-.oracle-icon {
-    height: 25px;
-}
-
-
-.free-tools-button {
-    border: 0px;
-    background-color: transparent;
-    font-family: Poppins, Arial, Helvetica, sans-serif  ;
-}
-
-.oracle-button {
-    border: 0px;
-    background-color: transparent;
-    font-family: Poppins, Arial, Helvetica, sans-serif;
-}
-
-.welcome {
-    margin-top:  10px;
-    margin-left: 70px;
-    font-family: Poppins, Arial, Helvetica, sans-serif;
-}
-
-.image-banner {
-    width: 30%;
-    margin-left: 60%;
-}
-
-.get-started {
-    border: 0px;
-    background-color: #1D818D;
-    color: white;
-    font-family: Poppins, Arial, Helvetica, sans-serif;
-    border-radius: 20px;
+.front-col-1 h1 {
+    font-size: 60px;
     font-weight: 700;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    font-family: Poppins;
+    margin-bottom: 50px;
 }
 
-.boy {
-    width: 65%;
-    margin-bottom: -4px;
+.front-col-1 h3 {
+    font-size: 50px;
+    font-weight: 500;
+    font-family: Poppins;
+    margin-bottom: 30px;
 }
 
-.signin-icon {
-    height: 13px;
-    align-items: flex-end;
+.sub img {
+    height: 30px;
 }
 
-.l-row {
-    display: flex;
-    padding-left: 70px;
-    padding-top: 200px ;
-  }
-.column {
-    flex: 50%;
-    height: 60%; 
-  }
 
-.footer1 {
+.front-icon-1 {
+    width: 28px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    font-size: 20px;
+}
+
+.front-icon-2 {
+    margin-left: 10px;
+    width: 28px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+}
+
+.front-col-3 a {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.front-button-icon {
+    height: 25px;
+    margin-top: 8px;
+    margin-bottom: 9px;
+    
+}
+
+.btn {
+    background-color: #1D818D;
+    border-radius: 30px;
+
+}
+
+.front-logo {
+    margin-bottom: 120px;
+}
+
+.btn-text {
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.footer {
+    background-image: url(../img/Rectangle\ 4146.png);
+}
+
+.footer-icon {
+    height: 40px;
+    margin-right: 20px;
+    margin-bottom: 60px;
+}
+
+.footer-col-1 {
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.footer-col-2 {
+    margin-top: 50px;
+}
+
+.footer-col-3 {
+    margin-top: 50px;
+}
+
+.front-footer {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+
+.sub-footer {
+    color: black;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.footer-col-sub-1 {
+    font-family: Poppins;
+    font-size: 17   px;
+    margin-top: 15px;
+}
+
+.footer-boarder {
     background-color: #3FE0D0;
-    float: left;
-    width: 25%;
-    height: 350px; 
-    font-family: Poppins, Arial, Helvetica, sans-serif;
-      
-  }
-  
-  .footer:after {
-    content: "";
-    display: table;
-    clear: both;
-    border-bottom: solid 1px; 
-    border-bottom: white;  
-  }
-
-  .Copyright {
-    font-family: Poppins, Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    padding-left: 800px;
-    background-color: #3FE0D0;
-    border-top: solid;
+    border-top: solid 1px;
     border-color: white;
-  }
+}
+.footer-boarder h6 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
 
-  @media (max-width: 400px) {
-    .welcome-text {
-        font-size: 13px;
-    }
-    .boy {
-        width: 60%!important;
+@media (min-width: 400px) {
+    .front-pg h3 {
+      font-size: 25px;
     }
   }
